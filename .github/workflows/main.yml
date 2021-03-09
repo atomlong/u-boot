@@ -1,0 +1,43 @@
+name: git CI
+
+on: 
+  release:
+    types: [published]
+  push:
+    tags:
+    - 'v*'
+   # branches: 
+   # - master
+  schedule:
+    - cron: 00 15 * * *
+  watch:
+    types: [started]
+
+jobs:
+  build-package:
+    strategy:
+      matrix:
+        branch: ["master"]
+    runs-on: ubuntu-latest
+    name: pull linux
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+      UPSTREAM_URL: ${{ secrets.UPSTREAM_URL }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        ref: ${{ matrix.branch }}
+    - name: Pull upstream changes
+      uses: atomlong/Sync-With-Upstream-action@master
+      id: sync
+      if: ${{ env.UPSTREAM_URL != '' }}
+      with:
+        upstream_repository: ${{ env.UPSTREAM_URL }}
+        upstream_branch: ${{ matrix.branch }}
+        target_branch: ${{ matrix.branch }}
+        git_pull_args: --rebase
+        git_push_args: --force-with-lease --tags
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        
