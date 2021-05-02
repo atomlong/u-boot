@@ -56,12 +56,9 @@
 				"512k(u-boot-env),"		\
 				"-(ubi)"
 
-#define CONFIG_MMC
 #define CONFIG_FSL_ESDHC
 #define CONFIG_SYS_FSL_ESDHC_ADDR	0
 #define CONFIG_SYS_FSL_ESDHC_NUM	1
-
-#define CONFIG_SYS_FSL_ERRATUM_ESDHC111
 
 #define CONFIG_GENERIC_MMC
 #define CONFIG_DOS_PARTITION

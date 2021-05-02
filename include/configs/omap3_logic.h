@@ -143,7 +143,6 @@
 		"else run defaultboot; fi\0" \
 	"defaultboot=run mmcramboot\0" \
 	"consoledevice=ttyO0\0" \
-	"display=15\0" \
 	"setconsole=setenv console ${consoledevice},${baudrate}n8\0" \
 	"dump_bootargs=echo 'Bootargs: '; echo $bootargs\0" \
 	"rotation=0\0" \
@@ -153,7 +152,7 @@
 		"fi\0" \
 	"optargs=ignore_loglevel early_printk no_console_suspend\0" \
 	"addmtdparts=setenv bootargs ${bootargs} ${mtdparts}\0" \
-	"common_bootargs=setenv bootargs ${bootargs} display=${display} " \
+	"common_bootargs=setenv bootargs ${bootargs} " \
 		"${optargs};" \
 		"run addmtdparts; " \
 		"run vrfb_arg\0" \
@@ -241,8 +240,6 @@
 /* **** PISMO SUPPORT *** */
 #if defined(CONFIG_CMD_NAND)
 #define CONFIG_SYS_FLASH_BASE		NAND_BASE
-#elif defined(CONFIG_CMD_ONENAND)
-#define CONFIG_SYS_FLASH_BASE		ONENAND_MAP
 #endif
 
 /* Monitor at start of flash */
@@ -250,7 +247,6 @@
 
 #define CONFIG_ENV_IS_IN_NAND		1
 #define CONFIG_ENV_SIZE			(128 << 10)	/* 128 KiB */
-#define ONENAND_ENV_OFFSET		0x260000 /* environment starts here */
 #define SMNAND_ENV_OFFSET		0x260000 /* environment starts here */
 
 #define CONFIG_SYS_ENV_SECT_SIZE	(128 << 10)	/* 128 KiB */

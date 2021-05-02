@@ -82,7 +82,6 @@
 #define CONFIG_MXC_GPIO
 
 /* MMC */
-#define CONFIG_MMC
 #define CONFIG_GENERIC_MMC
 #define CONFIG_BOUNCE_BUFFER
 #define CONFIG_FSL_ESDHC
@@ -95,10 +94,11 @@
 /* Secure boot (HAB) support */
 #ifdef CONFIG_SECURE_BOOT
 #define CONFIG_CSF_SIZE			0x2000
-#define CONFIG_SYS_FSL_SEC_COMPAT	4
 #define CONFIG_FSL_CAAM
 #define CONFIG_CMD_DEKBLOB
-#define CONFIG_SYS_FSL_SEC_LE
+#ifdef CONFIG_SPL_BUILD
+#define CONFIG_SPL_DRIVERS_MISC_SUPPORT
+#endif
 #endif
 
 #endif

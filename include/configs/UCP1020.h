@@ -45,7 +45,6 @@
 #endif
 #define CONFIG_SYS_REDUNDAND_ENVIRONMENT
 
-#define CONFIG_MMC
 #define CONFIG_SYS_L2_SIZE	(256 << 10)
 
 #define CONFIG_LAST_STAGE_INIT
@@ -81,7 +80,6 @@
 #endif
 #define CONFIG_SYS_REDUNDAND_ENVIRONMENT
 
-#define CONFIG_MMC
 #define CONFIG_SYS_L2_SIZE	(256 << 10)
 
 #define CONFIG_LAST_STAGE_INIT
@@ -116,11 +114,6 @@
 #ifndef CONFIG_SYS_MONITOR_BASE
 #define CONFIG_SYS_MONITOR_BASE	CONFIG_SYS_TEXT_BASE	/* start of monitor */
 #endif
-
-/* High Level Configuration Options */
-#define CONFIG_BOOKE
-#define CONFIG_E500
-/* #define CONFIG_MPC85xx */
 
 #define CONFIG_MP
 
@@ -183,7 +176,6 @@
 
 /* DDR Setup */
 #define CONFIG_DDR_ECC_ENABLE
-#define CONFIG_SYS_FSL_DDR3
 #ifndef CONFIG_DDR_ECC_ENABLE
 #define CONFIG_SYS_DDR_RAW_TIMING
 #define CONFIG_DDR_SPD
@@ -197,7 +189,6 @@
 #define CONFIG_SYS_DDR_SDRAM_BASE	0x00000000
 #define CONFIG_SYS_SDRAM_BASE		CONFIG_SYS_DDR_SDRAM_BASE
 
-#define CONFIG_NUM_DDR_CONTROLLERS	1
 #define CONFIG_DIMM_SLOTS_PER_CTLR	1
 
 /* Default settings for DDR3 */

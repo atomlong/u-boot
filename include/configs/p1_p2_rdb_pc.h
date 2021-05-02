@@ -258,10 +258,6 @@
 #endif
 #endif
 
-/* High Level Configuration Options */
-#define CONFIG_BOOKE
-#define CONFIG_E500
-
 #define CONFIG_MP
 
 #define CONFIG_FSL_ELBC
@@ -318,7 +314,6 @@
 #endif
 
 /* DDR Setup */
-#define CONFIG_SYS_FSL_DDR3
 #define CONFIG_SYS_DDR_RAW_TIMING
 #define CONFIG_DDR_SPD
 #define CONFIG_SYS_SPD_BUS_NUM 1
@@ -336,7 +331,6 @@
 #define CONFIG_SYS_DDR_SDRAM_BASE	0x00000000
 #define CONFIG_SYS_SDRAM_BASE		CONFIG_SYS_DDR_SDRAM_BASE
 
-#define CONFIG_NUM_DDR_CONTROLLERS	1
 #define CONFIG_DIMM_SLOTS_PER_CTLR	1
 
 /* Default settings for DDR3 */
@@ -845,8 +839,6 @@
 #if defined(CONFIG_TARGET_P1020RDB_PD)
 #define CONFIG_USB_MAX_CONTROLLER_COUNT	1
 #endif
-
-#define CONFIG_MMC
 
 #ifdef CONFIG_MMC
 #define CONFIG_FSL_ESDHC

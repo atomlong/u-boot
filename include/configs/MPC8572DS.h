@@ -26,8 +26,6 @@
 #endif
 
 /* High Level Configuration Options */
-#define CONFIG_BOOKE		1	/* BOOKE */
-#define CONFIG_E500		1	/* BOOKE e500 family */
 #define CONFIG_MP		1	/* support multiple processors */
 
 #define CONFIG_FSL_ELBC		1	/* Has Enhanced localbus controller */
@@ -84,7 +82,6 @@
 
 /* DDR Setup */
 #define CONFIG_VERY_BIG_RAM
-#define CONFIG_SYS_FSL_DDR2
 #undef CONFIG_FSL_DDR_INTERACTIVE
 #define CONFIG_SPD_EEPROM		/* Use SPD EEPROM for DDR setup */
 #define CONFIG_DDR_SPD
@@ -96,7 +93,6 @@
 #define CONFIG_SYS_DDR_SDRAM_BASE	0x00000000
 #define CONFIG_SYS_SDRAM_BASE		CONFIG_SYS_DDR_SDRAM_BASE
 
-#define CONFIG_NUM_DDR_CONTROLLERS	2
 #define CONFIG_DIMM_SLOTS_PER_CTLR	1
 #define CONFIG_CHIP_SELECTS_PER_CTRL	2
 

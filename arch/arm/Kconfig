@@ -129,7 +129,7 @@ config ENABLE_ARM_SOC_BOOT0_HOOK
 config USE_ARCH_MEMCPY
 	bool "Use an assembly optimized implementation of memcpy"
 	default y if CPU_V7
-	depends on !ARM64 && !SPL
+	depends on !ARM64
 	help
 	  Enable the generation of an optimized version of memcpy.
 	  Such implementation may be faster under some conditions
@@ -138,7 +138,7 @@ config USE_ARCH_MEMCPY
 config USE_ARCH_MEMSET
 	bool "Use an assembly optimized implementation of memset"
 	default y if CPU_V7
-	depends on !ARM64 && !SPL
+	depends on !ARM64
 	help
 	  Enable the generation of an optimized version of memset.
 	  Such implementation may be faster under some conditions
@@ -464,10 +464,16 @@ config ARCH_MESON
 config ARCH_MX7
 	bool "Freescale MX7"
 	select CPU_V7
+	select SYS_FSL_HAS_SEC if SECURE_BOOT
+	select SYS_FSL_SEC_COMPAT_4
+	select SYS_FSL_SEC_LE
 
 config ARCH_MX6
 	bool "Freescale MX6"
 	select CPU_V7
+	select SYS_FSL_HAS_SEC if SECURE_BOOT
+	select SYS_FSL_SEC_COMPAT_4
+	select SYS_FSL_SEC_LE
 
 config ARCH_MX5
 	bool "Freescale MX5"
@@ -540,6 +546,7 @@ config ARCH_RMOBILE
 config TARGET_S32V234EVB
 	bool "Support s32v234evb"
 	select ARM64
+	select SYS_FSL_ERRATUM_ESDHC111
 
 config ARCH_SNAPDRAGON
 	bool "Qualcomm Snapdragon SoCs"
@@ -596,22 +603,31 @@ config TARGET_TS4600
 config TARGET_TS4800
 	bool "Support TS4800"
 	select CPU_V7
+	select SYS_FSL_ERRATUM_ESDHC_A001
 
 config TARGET_VF610TWR
 	bool "Support vf610twr"
 	select CPU_V7
+	select SYS_FSL_ERRATUM_ESDHC111
 
 config TARGET_COLIBRI_VF
 	bool "Support Colibri VF50/61"
 	select CPU_V7
+	select SYS_FSL_ERRATUM_ESDHC111
 
 config TARGET_PCM052
 	bool "Support pcm-052"
 	select CPU_V7
+	select SYS_FSL_ERRATUM_ESDHC111
+	select SYS_FSL_ERRATUM_ESDHC135
+	select SYS_FSL_ERRATUM_ESDHC_A001
 
 config TARGET_BK4R1
 	bool "Support BK4r1"
 	select CPU_V7
+	select SYS_FSL_ERRATUM_ESDHC111
+	select SYS_FSL_ERRATUM_ESDHC135
+	select SYS_FSL_ERRATUM_ESDHC_A001
 
 config ARCH_ZYNQ
 	bool "Xilinx Zynq Platform"
@@ -764,6 +780,7 @@ config TARGET_LS1021AQDS
 	select ARCH_LS1021A
 	select ARCH_SUPPORT_PSCI
 	select LS1_DEEP_SLEEP
+	select SYS_FSL_DDR
 
 config TARGET_LS1021ATWR
 	bool "Support ls1021atwr"

@@ -11,16 +11,11 @@
 #ifndef __T2080RDB_H
 #define __T2080RDB_H
 
-#define CONFIG_T2080RDB
 #define CONFIG_ICS307_REFCLK_HZ 25000000  /* ICS307 ref clk freq */
-#define CONFIG_MMC
 #define CONFIG_USB_EHCI
 #define CONFIG_FSL_SATA_V2
 
 /* High Level Configuration Options */
-#define CONFIG_BOOKE
-#define CONFIG_E500		/* BOOKE e500 family */
-#define CONFIG_E500MC		/* BOOKE e500mc family */
 #define CONFIG_SYS_BOOK3E_HV	/* Category E.HV supported */
 #define CONFIG_MP		/* support multiple processors */
 #define CONFIG_ENABLE_36BIT_PHYS
@@ -31,7 +26,7 @@
 #endif
 
 #define CONFIG_SYS_FSL_CPC	/* Corenet Platform Cache */
-#define CONFIG_SYS_NUM_CPC	CONFIG_NUM_DDR_CONTROLLERS
+#define CONFIG_SYS_NUM_CPC	CONFIG_SYS_NUM_DDR_CTLRS
 #define CONFIG_FSL_IFC		/* Enable IFC Support */
 #define CONFIG_FSL_CAAM		/* Enable SEC/CAAM */
 #define CONFIG_ENV_OVERWRITE
@@ -210,7 +205,6 @@ unsigned long get_board_ddr_clk(void);
 #define CONFIG_DIMM_SLOTS_PER_CTLR	1
 #define CONFIG_CHIP_SELECTS_PER_CTRL	(4 * CONFIG_DIMM_SLOTS_PER_CTLR)
 #define CONFIG_DDR_SPD
-#define CONFIG_SYS_FSL_DDR3
 #undef CONFIG_FSL_DDR_INTERACTIVE
 #define CONFIG_SYS_SPD_BUS_NUM	0
 #define CONFIG_SYS_SDRAM_SIZE	2048	/* for fixed parameter use */
